@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>io.github.tstewart.NutritionCalculator</OriginalElement>
+  <nodes>
+    <node x="459.0" y="189.0">io.github.tstewart.NutritionCalculator.UserInfo.Gender</node>
+    <node x="91.0" y="311.0">io.github.tstewart.NutritionCalculator.strategies</node>
+    <node x="0.0" y="382.0">io.github.tstewart.NutritionCalculator.error</node>
+    <node x="12.5" y="0.0">io.github.tstewart.NutritionCalculator.UserNutrition</node>
+    <node x="0.0" y="211.0">io.github.tstewart.NutritionCalculator.UserNutrition.UserNutritionCalculation</node>
+    <node x="381.0" y="0.0">io.github.tstewart.NutritionCalculator.UserInfo</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="io.github.tstewart.NutritionCalculator.strategies" target="io.github.tstewart.NutritionCalculator.UserNutrition.UserNutritionCalculation">
+      <point x="0.0" y="-13.0" />
+      <point x="0.0" y="25.0" />
+    </edge>
+    <edge source="io.github.tstewart.NutritionCalculator.UserInfo.Gender" target="io.github.tstewart.NutritionCalculator.UserInfo">
+      <point x="0.0" y="-36.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="io.github.tstewart.NutritionCalculator.UserNutrition.UserNutritionCalculation" target="io.github.tstewart.NutritionCalculator.UserNutrition">
+      <point x="0.0" y="-25.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="77.0" y="119.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
