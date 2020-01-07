@@ -1,11 +1,11 @@
 package io.github.tstewart.NutritionCalculator;
 
 public class UserNutrition {
-    int caloriesRequired;
-    double energyRequired;
-    double fatRequired;
-    double carbohydratesRequired;
-    double proteinRequired;
+    private int caloriesRequired;
+    private double energyRequired;
+    private double fatRequired;
+    private double carbohydratesRequired;
+    private double proteinRequired;
 
     public UserNutrition(int caloriesRequired, double energyRequired, double fatRequired, double carbohydratesRequired, double proteinRequired) {
         this.caloriesRequired = caloriesRequired;

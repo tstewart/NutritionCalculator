@@ -1,10 +1,10 @@
 package io.github.tstewart.NutritionCalculator;
 
 public class UserInfo {
-    Gender gender;
-    int age;
-    double weight;
-    double height;
+    private Gender gender;
+    private int age;
+    private double weight;
+    private double height;
 
     public UserInfo(Gender gender, int age, double weight, double height) {
         this.gender = gender;
