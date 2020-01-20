@@ -7,6 +7,12 @@ public class UserInfo {
     private double height;
 
     public UserInfo(Gender gender, int age, double weight, double height) {
+
+        if(gender == null) throw new IllegalArgumentException("Please select a gender");
+        if(age < 0 || age > 120) throw new IllegalArgumentException("Invalid age (min 0, max 120)");
+        if(weight < 0 || weight > 500) throw new IllegalArgumentException("Invalid weight (min 0kg, max 500kg)");
+        if(height < 0 || height > 250) throw new IllegalArgumentException("Invalid height (min 0cm, max 250cm");
+
         this.gender = gender;
         this.age = age;
         this.weight = weight;
