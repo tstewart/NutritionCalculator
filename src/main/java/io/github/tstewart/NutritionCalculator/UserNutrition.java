@@ -15,6 +15,10 @@ public class UserNutrition {
         this.proteinRequired = proteinRequired;
     }
 
+    public UserNutrition() {
+
+    }
+
     public int getCaloriesRequired() {
         return caloriesRequired;
     }

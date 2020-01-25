@@ -19,6 +19,10 @@ public class UserInfo {
         this.height = height;
     }
 
+    public UserInfo() {
+
+    }
+
     public Gender getGender() {
         return gender;
     }
