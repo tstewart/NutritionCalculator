@@ -5,6 +5,7 @@ public class UserInfo {
     private int age;
     private double weight;
     private double height;
+    private UserNutrition userNutrition;
 
     public UserInfo(Gender gender, int age, double weight, double height) throws IllegalArgumentException {
 
@@ -53,6 +54,14 @@ public class UserInfo {
 
     public void setHeight(double height) {
         this.height = height;
+    }
+
+    public UserNutrition getUserNutrition() {
+        return userNutrition;
+    }
+
+    public void setUserNutrition(UserNutrition userNutrition) {
+        this.userNutrition = userNutrition;
     }
 
     public enum Gender {
