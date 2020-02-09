@@ -23,6 +23,10 @@ public class NutritionCalculationStrategy implements UserNutrition.UserNutrition
         double caloriesRequired = getCaloriesRequired(info);
 
         nutrition.setCaloriesRequired((int) Math.floor(caloriesRequired));
+        nutrition.setCarbohydratesRequired((int) Math.floor((caloriesRequired * 50)/100));
+        nutrition.setFatRequired((int) Math.floor((caloriesRequired * 35) / 100));
+        nutrition.setProteinRequired(info.getWeight() * 0.75);
+        nutrition.setFiberRequired((int) Math.floor(15 * (caloriesRequired / 1000)));
         return nutrition;
     }
 
