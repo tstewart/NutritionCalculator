@@ -2,14 +2,14 @@ package io.github.tstewart.NutritionCalculator;
 
 public class UserNutrition {
     private int caloriesRequired;
-    private double energyRequired;
+    private double fiberRequired;
     private double fatRequired;
     private double carbohydratesRequired;
     private double proteinRequired;
 
-    public UserNutrition(int caloriesRequired, double energyRequired, double fatRequired, double carbohydratesRequired, double proteinRequired) {
+    public UserNutrition(int caloriesRequired, double fiberRequired, double fatRequired, double carbohydratesRequired, double proteinRequired) {
         this.caloriesRequired = caloriesRequired;
-        this.energyRequired = energyRequired;
+        this.fiberRequired = fiberRequired;
         this.fatRequired = fatRequired;
         this.carbohydratesRequired = carbohydratesRequired;
         this.proteinRequired = proteinRequired;
@@ -27,12 +27,12 @@ public class UserNutrition {
         this.caloriesRequired = caloriesRequired;
     }
 
-    public double getEnergyRequired() {
-        return energyRequired;
+    public double getFiberRequired() {
+        return fiberRequired;
     }
 
-    public void setEnergyRequired(double energyRequired) {
-        this.energyRequired = energyRequired;
+    public void setFiberRequired(double fiberRequired) {
+        this.fiberRequired = fiberRequired;
     }
 
     public double getFatRequired() {
