@@ -1,5 +1,7 @@
 package io.github.tstewart.NutritionCalculator;
 
+import io.github.tstewart.NutritionCalculator.strategies.NutritionCalculationStrategy;
+
 public class UserInfo {
     private Gender gender;
     private int age;
@@ -18,6 +20,9 @@ public class UserInfo {
         this.age = age;
         this.weight = weight;
         this.height = height;
+
+        NutritionCalculationStrategy calculationStrategy = new NutritionCalculationStrategy();
+        this.setUserNutrition(calculationStrategy.calculateNutritionalInformation(this));
     }
 
     public UserInfo() {
