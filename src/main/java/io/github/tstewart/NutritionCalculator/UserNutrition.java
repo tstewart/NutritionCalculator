@@ -1,6 +1,8 @@
 package io.github.tstewart.NutritionCalculator;
 
-public class UserNutrition {
+import java.io.Serializable;
+
+public class UserNutrition implements Serializable {
     private int caloriesRequired;
     private double fiberRequired;
     private double fatRequired;

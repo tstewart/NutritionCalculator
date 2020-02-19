@@ -2,7 +2,9 @@ package io.github.tstewart.NutritionCalculator;
 
 import io.github.tstewart.NutritionCalculator.strategies.NutritionCalculationStrategy;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo implements Serializable {
     private Gender gender;
     private int age;
     private double weight;
