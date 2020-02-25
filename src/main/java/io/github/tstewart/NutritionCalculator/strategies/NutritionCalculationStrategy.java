@@ -5,60 +5,64 @@ import io.github.tstewart.NutritionCalculator.UserNutrition;
 
 public class NutritionCalculationStrategy implements UserNutrition.UserNutritionCalculation {
 
-    /**
-     * Calculates nutritional information (calories, nutrients required) with the provided user information
-     * Calories are calculated with the following formula:
-     *
-     * Adult male: 66 + (6.3 x body weight in lbs.) + (12.9 x height in inches) - (6.8 x age in years)
-     * Adult female: 655 + (4.3 x weight in lbs.) + (4.7 x height in inches) - (4.7 x age in years)
-     *
-     * These values are then multiplied by 1.55, assuming a normal amount of exercise by the user.
-     *
-     * @param info User information (age, gender, etc.)
-     * @return Nutrition required for this user
-     */
-    @Override
-    public UserNutrition calculateNutritionalInformation(UserInfo info) {
-        UserNutrition nutrition = new UserNutrition();
-        double caloriesRequired = getCaloriesRequired(info);
+  /**
+   * Calculates nutritional information (calories, nutrients required) with the provided user
+   * information Calories are calculated with the following formula:
+   *
+   * <p>Adult male: 66 + (6.3 x body weight in lbs.) + (12.9 x height in inches) - (6.8 x age in
+   * years) Adult female: 655 + (4.3 x weight in lbs.) + (4.7 x height in inches) - (4.7 x age in
+   * years)
+   *
+   * <p>These values are then multiplied by 1.55, assuming a normal amount of exercise by the user.
+   *
+   * @param info User information (age, gender, etc.)
+   * @return Nutrition required for this user
+   */
+  @Override
+  public UserNutrition calculateNutritionalInformation(final UserInfo info) {
+    final UserNutrition nutrition = new UserNutrition();
+    final double caloriesRequired = this.getCaloriesRequired(info);
 
-        nutrition.setCaloriesRequired((int) Math.floor(caloriesRequired));
-        nutrition.setCarbohydratesRequired((int) Math.floor((caloriesRequired * 50)/100));
-        nutrition.setFatRequired((int) Math.floor((caloriesRequired * 35) / 100));
-        nutrition.setProteinRequired(info.getWeight() * 0.75);
-        nutrition.setFiberRequired((int) Math.floor(15 * (caloriesRequired / 1000)));
-        return nutrition;
-    }
+    nutrition.setCaloriesRequired((int) Math.floor(caloriesRequired));
+    nutrition.setCarbohydratesRequired((int) Math.floor(convertKgToLb(info.getWeight()) * 2.5));
+    nutrition.setFatRequired((int) Math.floor((caloriesRequired * 0.2) / 9));
+    nutrition.setProteinRequired(info.getWeight() * 0.75);
+    nutrition.setFiberRequired((int) Math.floor(15 * (caloriesRequired / 1000)));
+    return nutrition;
+  }
 
-    private double getCaloriesRequired(UserInfo info) {
-        double calorieCalculation;
+  private double getCaloriesRequired(final UserInfo info) {
+    final double calorieCalculation;
 
-        if(info.getGender() == UserInfo.Gender.MALE) {
-            calorieCalculation = (66 + (convertKgToLb(info.getWeight()) * 6.3) + (convertCmToIn(info.getHeight()) * 12.9) - (info.getAge() * 6.8));
-        }
-        else {
-            calorieCalculation = (655 + (convertKgToLb(info.getWeight()) * 4.3) + (convertCmToIn(info.getHeight()) * 4.7) - (info.getAge() * 4.7));
-        }
-        return calorieCalculation * 1.55;
-    }
+    calorieCalculation =
+        UserInfo.Gender.MALE == info.getGender()
+            ? 66
+                + (this.convertKgToLb(info.getWeight()) * 6.3)
+                + (this.convertCmToIn(info.getHeight()) * 12.9)
+                - (info.getAge() * 6.8)
+            : 655
+                + (this.convertKgToLb(info.getWeight()) * 4.3)
+                + (this.convertCmToIn(info.getHeight()) * 4.7)
+                - (info.getAge() * 4.7);
+    return calorieCalculation * 1.55;
+  }
 
-    private double convertKgToLb(double weightKg) {
-        return weightKg * ImperialConversion.KgToLb.conversionRate;
-    }
+  private double convertKgToLb(final double weightKg) {
+    return weightKg * ImperialConversion.KgToLb.conversionRate;
+  }
 
-    private double convertCmToIn(double heightCm) {
-        return heightCm * ImperialConversion.cmToIn.conversionRate;
-    }
+  private double convertCmToIn(final double heightCm) {
+    return heightCm * ImperialConversion.cmToIn.conversionRate;
+  }
 }
 
 enum ImperialConversion {
-    KgToLb(2.20462),
-    cmToIn(0.393701);
+  KgToLb(2.20462),
+  cmToIn(0.393701);
 
-    double conversionRate;
+  final double conversionRate;
 
-    ImperialConversion(double conversionRate) {
-        this.conversionRate = conversionRate;
-    }
-
+  ImperialConversion(final double conversionRate) {
+    this.conversionRate = conversionRate;
+  }
 }
