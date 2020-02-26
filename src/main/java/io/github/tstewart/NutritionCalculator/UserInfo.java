@@ -72,7 +72,7 @@ public class UserInfo implements Serializable {
     return this.userNutrition;
   }
 
-  private void setUserNutrition(final UserNutrition userNutrition) {
+  public void setUserNutrition(final UserNutrition userNutrition) {
     this.userNutrition = userNutrition;
   }
 
