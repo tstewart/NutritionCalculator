@@ -4,6 +4,9 @@ import io.github.tstewart.NutritionCalculator.strategies.NutritionCalculationStr
 
 import java.io.Serializable;
 
+/**
+ * Author: Thomas Stewart
+ */
 public class UserInfo implements Serializable {
   private Gender gender;
   private int age;
@@ -11,6 +14,14 @@ public class UserInfo implements Serializable {
   private double height;
   private UserNutrition userNutrition;
 
+    /**
+     * User information
+     * @param gender Biological gender (Male or Female)
+     * @param age Age (min 0, max 120)
+     * @param weight Weight (min 0kg, max 500kg)
+     * @param height Height (min 0cm, max 250cm)
+     * @throws IllegalArgumentException Thrown if the user data is invalid.
+     */
   public UserInfo(final Gender gender, final int age, final double weight, final double height)
       throws IllegalArgumentException {
     super();
@@ -27,6 +38,7 @@ public class UserInfo implements Serializable {
     this.weight = weight;
     this.height = height;
 
+    // Nutrition requirements are calculated using the nutrition calculation strategy
     final UserNutrition.UserNutritionCalculation calculationStrategy =
         new NutritionCalculationStrategy();
     setUserNutrition(calculationStrategy.calculateNutritionalInformation(this));

@@ -2,6 +2,9 @@ package io.github.tstewart.NutritionCalculator;
 
 import java.io.Serializable;
 
+/**
+ * Author: Thomas Stewart
+ */
 public class UserNutrition implements Serializable {
   private int caloriesRequired;
   private double fiberRequired;
@@ -67,6 +70,9 @@ public class UserNutrition implements Serializable {
     this.proteinRequired = proteinRequired;
   }
 
+    /**
+     * Calculation strategy interface
+     */
   public interface UserNutritionCalculation {
     UserNutrition calculateNutritionalInformation(UserInfo info);
   }
